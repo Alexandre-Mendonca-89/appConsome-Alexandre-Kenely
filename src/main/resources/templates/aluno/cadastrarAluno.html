@@ -1,0 +1,44 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<script src="/jquery/jquery-3.3.1.slim.min.js"></script>
+	<script src="/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div th:insert="~{nav :: menu}"></div>
+	<div class="container">
+		<div class="row mb-4 mt-4">
+			<div class="alert alert-light" role="alert">
+				<h1>Cadastro de Alunos</h1>
+			</div>
+		</div>
+
+		<form class="form-inline" method="POST" th:action="@{/aluno/insere}">
+			<div class="row mb-3">
+				<div class="col col-md-9">
+					<label class="form-label" for="idNome">Nome</label>
+					<input class="form-control" type="text" th:value="${aluno.nome}" name="nome" id="nome">
+				</div>
+				<div class="col col-md-3">
+					<label class="form-label" for="idIdade">Idade</label>
+					<input class="form-control" type="number" th:value="${aluno.idade}" name="idade" id="idade">
+				</div>
+				<div class="col col-md-3">
+					<label class="form-label" for="idSexo">Sexo</label>
+					<input class="form-control" type="text" th:value="${aluno.sexo}" name="sexo" id="sexo">
+				</div>
+				<div class="col col-md-3">
+					<label class="form-label" for="idCurso">Curso</label>
+					<input class="form-control" type="text" th:value="${aluno.curso}" name="curso" id="curso">
+				</div>
+			</div>
+			<input class="btn btn-primary" type="submit" value="Salvar">
+		</form>
+	</div>
+</body>
+</html>

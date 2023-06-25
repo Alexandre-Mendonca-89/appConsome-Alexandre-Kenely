@@ -1,0 +1,49 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<script src="/jquery/jquery-3.3.1.slim.min.js"></script>
+	<script src="/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div th:insert="~{nav :: menu}"></div>
+	<div class="container">
+		<div class="row mb-4 mt-4">
+			<div class="alert alert-light" role="alert">
+				<h1>Lista de Alunos Cadastrados</h1>
+			</div>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Nome</th>
+					<th scope="col">Idade</th>
+					<th scope="col">Sexo</th>
+					<th scope="col">Curso</th>
+					<th scope="col">Editar Aluno</th>
+					<th scope="col">Excluir Aluno</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="aluno : ${alunos}">
+					<th scope="row" th:text="${aluno.idAluno}"></th>
+					<td th:text="${aluno.nome}"></td>
+					<td th:text="${aluno.idade}"></td>
+					<td th:text="${aluno.sexo}"></td>
+					<td th:text="${aluno.curso}"></td>
+					<td><a class="btn btn-warning" href="/aluno/editarAluno/{id}" role="button">Editar</a></td>
+					<td><a class="btn btn-danger" href="/aluno/excluirAluno/{id}" role="button">Excluir</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+</body>
+
+</html>
